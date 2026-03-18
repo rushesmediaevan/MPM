@@ -1,0 +1,1024 @@
+/* Color Variables */
+:root {
+  --dark-green: #1a4d3a;
+  --medium-green: #2d6b50;
+  --light-green: #3e8b69;
+  --accent-green: #4fa673;
+  --white: #ffffff;
+  --black: #000000;
+  --gray-dark: #333333;
+  --gray-light: #f5f5f5;
+  
+  /* Dynamic service colors - defaults to hardscaping */
+  --service-primary: #2C2C2C;
+  --service-secondary: #D6CBB4;
+  --service-accent: #4A5D3E;
+  --service-neutral: #9E9E9E;
+  --service-background: #F4F3EF;
+}
+
+/* Dynamic text selection colors */
+::selection {
+  background: var(--service-secondary, #D6CBB4);
+  color: var(--service-primary, #2C2C2C);
+}
+
+::-moz-selection {
+  background: var(--service-secondary, #D6CBB4);
+  color: var(--service-primary, #2C2C2C);
+}
+
+/* Base App Styles */
+.app {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Header styles are now handled by CardNav component */
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: transparent;
+}
+
+.color-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--service-primary, #2C2C2C) 0%,
+    var(--service-secondary, #D6CBB4) 50%,
+    var(--service-accent, #4A5D3E) 100%
+  );
+  z-index: -1;
+  transition: all 0.8s ease;
+}
+
+
+
+.hero-content {
+  text-align: center;
+  z-index: 1;
+}
+
+.logo-container {
+  margin-top: 5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-logo {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.3));
+  transition: all 0.4s ease;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-circular-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 375px !important;
+  height: 375px !important;
+  z-index: 1;
+  margin-top: -195px;
+  margin-left: -188px;
+}
+
+.hero-circular-text span {
+  font-family: 'Cardo', serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: white !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-logo:hover {
+  filter: drop-shadow(0 25px 70px rgba(0, 0, 0, 0.4));
+}
+
+.cta-button {
+  background: linear-gradient(135deg, var(--medium-green) 0%, var(--dark-green) 100%);
+  color: var(--white);
+  border: none;
+  padding: 1.2rem 3rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 10px 30px rgba(26, 77, 58, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.cta-button:hover {
+  box-shadow: 0 15px 40px rgba(26, 77, 58, 0.6);
+  background: linear-gradient(135deg, var(--accent-green) 0%, var(--medium-green) 100%);
+}
+
+.cta-button:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Content Section */
+.content-section {
+  background: var(--service-background, var(--white));
+  min-height: 15vh;
+  padding: 1.5rem 0;
+  position: relative;
+  border-top: 2px solid var(--service-primary, #2d6b50);
+  transition: all 0.5s ease;
+}
+
+.content-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Button Layout */
+.button-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.button-row {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  flex-wrap: nowrap;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-button {
+  background: linear-gradient(135deg, var(--white) 0%, var(--gray-light) 100%);
+  color: var(--service-primary, var(--dark-green));
+  border: 2px solid var(--service-secondary, var(--medium-green));
+  border-right: 1px solid var(--service-secondary, var(--medium-green));
+  padding: 1.5rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+  min-width: 180px;
+  font-family: 'Cardo', serif;
+  flex: 1;
+}
+
+.service-button:first-child {
+  border-left: 2px solid var(--service-secondary, var(--medium-green));
+}
+
+.service-button:last-child {
+  border-right: 2px solid var(--service-secondary, var(--medium-green));
+}
+
+.service-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(45, 107, 80, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.service-button:hover::before {
+  left: 100%;
+}
+
+.service-button:hover {
+  background: linear-gradient(135deg, var(--service-secondary, var(--medium-green)) 0%, var(--service-primary, var(--dark-green)) 100%);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.service-button.active {
+  background: linear-gradient(135deg, var(--service-secondary, var(--medium-green)) 0%, var(--service-primary, var(--dark-green)) 100%);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.service-button.active:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.service-button:active {
+  transform: translateY(-1px);
+}
+
+.book-now-container {
+  display: flex;
+  justify-content: center;
+}
+
+.content-book-now-button {
+  background: linear-gradient(135deg, var(--service-secondary, var(--medium-green)) 0%, var(--service-primary, var(--dark-green)) 100%);
+  color: var(--white);
+  border: none;
+  padding: 1.5rem 4rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Cardo', serif;
+}
+
+.content-book-now-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.content-book-now-button:hover::before {
+  left: 100%;
+}
+
+.content-book-now-button:hover {
+  background: linear-gradient(135deg, var(--service-accent, var(--accent-green)) 0%, var(--service-secondary, var(--medium-green)) 100%);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.content-book-now-button:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Second Content Section */
+.content-section-secondary {
+  background: var(--service-background, var(--white));
+  min-height: 30vh;
+  padding: 4rem 0;
+  position: relative;
+  border-top: 2px solid var(--service-primary, #2d6b50);
+  transition: all 0.5s ease;
+}
+
+.content-section-secondary .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile navigation is now handled by CardNav component */
+
+/* Enhanced Mobile Image Optimization */
+
+/* Responsive Design for Hero Content */
+@media (max-width: 768px) {
+  .hero {
+    height: 40vh;
+  }
+
+  .hero-logo {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .hero-circular-text {
+    width: 280px !important;
+    height: 280px !important;
+    margin-top: -140px;
+    margin-left: -140px;
+  }
+  
+  .hero-circular-text span {
+    font-size: 12px !important;
+  }
+  
+  .cta-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .logo-container {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 480px) {
+  .hero {
+    height: 35vh;
+    padding: 0 1rem;
+  }
+  
+  .hero-logo {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .hero-circular-text {
+    width: 240px !important;
+    height: 240px !important;
+    margin-top: -130px;
+    margin-left: -120px;
+  }
+  
+  .hero-circular-text span {
+    font-size: 10px !important;
+  }
+  
+  .cta-button {
+    padding: 0.9rem 1.8rem;
+    font-size: 1rem;
+    margin: 0 1rem;
+  }
+  
+  .logo-container {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Improve text readability on mobile */
+  .hero-content {
+    padding: 0 1rem;
+  }
+  
+  /* Button Layout Mobile */
+  .button-row {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    overflow: hidden;
+  }
+  
+  .service-button {
+    min-width: auto;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    border: 2px solid var(--service-secondary, var(--medium-green));
+    border-bottom: 1px solid var(--service-secondary, var(--medium-green));
+    margin: 0;
+    text-align: center;
+  }
+  
+  .service-button:first-child {
+    border-top: 2px solid var(--service-secondary, var(--medium-green));
+  }
+  
+  .service-button:last-child {
+    border-bottom: 2px solid var(--service-secondary, var(--medium-green));
+  }
+  
+  .content-book-now-button {
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .button-layout {
+    gap: 2rem;
+    padding: 1rem 0;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .hero-logo {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .hero-circular-text {
+    width: 240px !important;
+    height: 240px !important;
+  }
+  
+  .hero-circular-text span {
+    font-size: 10px !important;
+  }
+  
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Touch device optimizations for hero button */
+@media (hover: none) and (pointer: coarse) {
+  .cta-button:hover {
+    transform: none;
+    box-shadow: 0 10px 30px rgba(26, 77, 58, 0.5);
+  }
+  
+  .cta-button:active {
+    opacity: 0.9;
+  }
+}
+
+/* Services Showcase Section */
+.services-showcase {
+  background: var(--service-background, var(--white));
+  padding: 4rem 0;
+  border-top: 2px solid var(--service-primary, var(--dark-green));
+  transition: all 0.5s ease;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.services-header-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  position: relative;
+}
+
+.services-title {
+  font-family: 'Cardo', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--service-primary, var(--dark-green));
+  margin-bottom: 0;
+  line-height: 1.2;
+  text-align: left;
+  margin-right: 2rem;
+}
+
+.services-book-now-button {
+  background: linear-gradient(135deg, var(--service-secondary, var(--medium-green)) 0%, var(--service-primary, var(--dark-green)) 100%);
+  color: var(--white);
+  border: none;
+  padding: 1.2rem 3.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'Cardo', serif;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  right: 23%;
+  top: 65%;
+  transform: translateY(-50%);
+  overflow: hidden;
+}
+
+.services-book-now-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.services-book-now-button:hover::before {
+  left: 100%;
+}
+
+.services-book-now-button:hover {
+  background: var(--white);
+  color: var(--service-primary, var(--dark-green));
+  transform: translateY(-50%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.services-subtitle {
+  font-family: 'Cardo', serif;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 1200px;
+  margin: 0 auto;
+  line-height: 1.6;
+  text-align: left;
+  padding: 0 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-item {
+  background: var(--white);
+  border-radius: 0;
+  overflow: hidden;
+  border: 2px solid var(--service-secondary, var(--medium-green));
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: var(--service-primary, var(--dark-green));
+}
+
+.service-large {
+  grid-row: 1 / 3;
+}
+
+.service-medium {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.service-small {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.service-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-large .service-image {
+  height: 500px;
+}
+
+.service-medium .service-image {
+  height: 280px;
+}
+
+.service-small .service-image {
+  height: 140px;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.3s ease;
+  transform: scale(1.1);
+}
+
+.service-medium .service-image img {
+  object-position: center top;
+}
+
+.service-item:hover .service-image img {
+  transform: scale(1.15);
+}
+
+.service-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 77, 58, 0.1) 0%,
+    rgba(45, 107, 80, 0.2) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-item:hover .service-overlay {
+  opacity: 1;
+}
+
+.service-content {
+  padding: 1rem;
+}
+
+.service-title {
+  font-family: 'Cardo', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--service-primary, var(--dark-green));
+  margin-bottom: 0.8rem;
+}
+
+.service-description {
+  font-family: 'Cardo', serif;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.service-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-list li {
+  font-family: 'Cardo', serif;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  padding: 0.3rem 0;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.service-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--service-accent, var(--dark-green));
+  font-weight: bold;
+}
+
+/* Responsive Design for Services */
+@media (max-width: 768px) {
+  .services-showcase {
+    padding: 3rem 0;
+  }
+
+  .services-header-top {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  .services-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .services-book-now-button {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+  }
+
+  .services-subtitle {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .service-large,
+  .service-medium,
+  .service-small {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .service-large .service-image,
+  .service-medium .service-image,
+  .service-small .service-image {
+    height: 250px;
+  }
+
+  .service-content {
+    padding: 1.2rem;
+  }
+
+  .service-title {
+    font-size: 1.3rem;
+  }
+
+  .service-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-header {
+    margin-bottom: 2rem;
+  }
+
+  .services-header-top {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .services-title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-right: 0;
+  }
+
+  .services-book-now-button {
+    position: static;
+    transform: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+    right: auto;
+    top: auto;
+  }
+
+  .service-image {
+    height: 200px !important;
+  }
+
+  .service-content {
+    padding: 1rem;
+  }
+
+  .service-title {
+    font-size: 1.2rem;
+  }
+
+  .service-description {
+    font-size: 0.9rem;
+  }
+
+  .service-list li {
+    font-size: 0.85rem;
+  }
+}
+
+/* Footer */
+.footer {
+  background: var(--service-primary, var(--dark-green));
+  color: var(--white);
+  padding: 3rem 0 0;
+  margin-top: 0;
+  transition: background-color 0.5s ease;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  font-family: 'Cardo', serif;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+.footer-section h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.footer-section h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.footer-brand .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-brand .footer-logo img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-top: -17px;
+}
+
+.footer-description {
+  font-family: 'Cardo', serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 400px;
+}
+
+.footer-services ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-services ul li {
+  font-family: 'Cardo', serif;
+  font-size: 0.95rem;
+  padding: 0.3rem 0;
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.3s ease;
+}
+
+.footer-services ul li:hover {
+  color: var(--white);
+  cursor: pointer;
+}
+
+.contact-info {
+  margin-bottom: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+  font-family: 'Cardo', serif;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-icon {
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border-radius: 0;
+  color: var(--white);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.social-link:hover {
+  color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem 0;
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Cardo', serif;
+  font-size: 0.9rem;
+  color: #ffffff !important;
+}
+
+.footer-bottom-content p {
+  color: #ffffff !important;
+  margin: 0;
+}
+
+/* Footer Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 0 0;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .footer-brand .footer-logo {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-brand .footer-description {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .footer-services,
+  .footer-contact {
+    text-align: center;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-bottom-content {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    padding: 0 1rem;
+  }
+
+  .footer-brand .footer-logo h3 {
+    font-size: 1.3rem;
+  }
+
+  .footer-section h4 {
+    font-size: 1.1rem;
+  }
+
+  .footer-description {
+    font-size: 0.9rem;
+  }
+
+  .contact-item {
+    font-size: 0.9rem;
+  }
+}
