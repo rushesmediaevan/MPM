@@ -1,0 +1,257 @@
+/* ─────────────────────────────────────────────
+   MPM — Linen · Moss · Bronze
+   Restrained, outdoor-brand palette (no harsh neon greens)
+───────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Surfaces */
+  --cream: #f3f1eb;
+  --cream-deep: #e6e3d9;
+  --cream-elevated: #fdfcfa;
+
+  /* Brand greens — muted sage / forest (not traffic green) */
+  --navy: #3d5242;
+  --navy-soft: #5a6e5c;
+  --navy-deep: #1e2822;
+
+  /* Type */
+  --text: #1a211c;
+  --text-soft: #3e4540;
+  --text-muted: #6f7670;
+
+  /* Accent — warm bronze / copper */
+  --gold: #a67c52;
+  --gold-hover: #8f6844;
+  --gold-dim: rgba(166, 124, 82, 0.14);
+
+  /* Lines & shadows */
+  --line: rgba(30, 40, 34, 0.1);
+  --line-light: rgba(30, 40, 34, 0.06);
+  --shadow-contact: 0 1px 2px rgba(24, 32, 26, 0.06);
+  --shadow-key: 0 12px 28px rgba(24, 32, 26, 0.08);
+  --shadow-ambient: 0 28px 56px rgba(24, 32, 26, 0.07);
+  --shadow-elevated: var(--shadow-contact), var(--shadow-key), var(--shadow-ambient);
+  --shadow-lift: var(--shadow-contact), 0 16px 36px rgba(24, 32, 26, 0.1), 0 32px 64px rgba(24, 32, 26, 0.06);
+  --shadow-glass: 0 4px 24px rgba(24, 32, 26, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+  /* Radius */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* Nav (fixed bar) */
+  --nav-surface: rgba(253, 252, 250, 0.94);
+  --nav-border: rgba(30, 40, 34, 0.1);
+  --nav-shadow: 0 4px 32px rgba(24, 32, 26, 0.09);
+  --nav-card-solid: #3d5242;
+  --nav-text-on-card: #f7f5f0;
+
+  /* Legacy aliases */
+  --forest-green: var(--navy-soft);
+  --forest-soft: #6b8069;
+  --forest-deep: var(--navy-deep);
+  --leaf-bright: #8a9b7e;
+  --bark-brown: var(--gold);
+  --bark-light: #c4a574;
+  --bark-dim: var(--gold-dim);
+  --white: #ffffff;
+  --gray-dark: var(--text-soft);
+  --dark-green: var(--navy);
+  --medium-green: var(--navy-soft);
+
+  /* Service theme defaults (About / Gallery) */
+  --service-primary: var(--navy);
+  --service-secondary: var(--cream-deep);
+  --service-accent: var(--gold);
+  --service-neutral: var(--text-muted);
+  --service-background: var(--cream);
+
+  /* Layout rhythm */
+  --section-y: clamp(3.5rem, 8vw, 6.25rem);
+  --container-max: 1120px;
+  --container-pad: clamp(1.15rem, 4vw, 2.25rem);
+
+  font-family: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text);
+  background-color: var(--cream);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--cream);
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--navy-deep);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2.35rem, 5.2vw, 3.85rem);
+}
+
+h2 {
+  font-size: clamp(1.85rem, 3.6vw, 2.65rem);
+}
+
+h3 {
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+}
+
+h4 {
+  font-size: 1.15rem;
+}
+
+p {
+  font-family: 'Jost', sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.72;
+  color: var(--text-soft);
+}
+
+a {
+  font-weight: 500;
+  color: var(--bark-brown);
+  text-decoration: none;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+a:hover {
+  color: var(--navy);
+}
+
+button {
+  border: none;
+  background: none;
+  font-family: 'Jost', sans-serif;
+  cursor: pointer;
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.label {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+::selection {
+  background: var(--navy-soft);
+  color: var(--cream-elevated);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-left,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
