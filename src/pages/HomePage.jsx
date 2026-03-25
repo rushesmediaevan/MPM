@@ -97,8 +97,11 @@ export default function HomePage({ activeService, setActiveService, serviceConfi
                 </div>
                 <h1 id="hero-title" className="hero-title hero-title--minimal reveal" data-delay="60">
                   <span className="sr-only">{BUSINESS_NAME}. </span>
-                  Book an estimate
+                  Hardscaping &amp; Landscaping in South Jersey
                 </h1>
+                <p className="hero-sub reveal" data-delay="90">
+                  Licensed &amp; insured. Clean installs. Reliable service.
+                </p>
                 <div className="hero-cta-row hero-cta-row--minimal reveal" data-delay="120">
                   <a className="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
                     Book estimate
@@ -107,12 +110,6 @@ export default function HomePage({ activeService, setActiveService, serviceConfi
                     Call {PHONE_DISPLAY}
                   </a>
                 </div>
-                <p className="hero-trust reveal" data-delay="180">
-                  Licensed &amp; insured
-                </p>
-                <p className="hero-coverage reveal" data-delay="220">
-                  Serving South Jersey and the Philadelphia area.
-                </p>
               </div>
             </div>
           </div>
