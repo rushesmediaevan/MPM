@@ -527,6 +527,8 @@
   overflow: hidden;
   box-shadow: var(--shadow-contact);
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card-stacked:hover {
@@ -560,6 +562,10 @@
 .service-card-stacked-body {
   padding: 1.35rem 1.35rem 1.45rem;
   text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .service-card-stacked-title {
@@ -576,6 +582,7 @@
 }
 
 .service-card-stacked-btn {
+  display: none;
   font-family: 'Jost', sans-serif;
   font-size: 0.66rem;
   font-weight: 600;
@@ -1455,6 +1462,10 @@
 }
 
 @media (max-width: 768px) {
+  .service-card-stacked-btn {
+    display: inline-flex;
+  }
+
   .hero {
     min-height: auto;
     padding: 6.15rem 0 4.25rem;

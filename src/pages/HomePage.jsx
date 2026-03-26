@@ -134,7 +134,12 @@ export default function HomePage({ activeService, setActiveService, serviceConfi
                     <button
                       className="service-card-stacked-btn"
                       type="button"
-                      onClick={() => setActiveService(p.key)}
+                      onClick={() => {
+                        setActiveService(p.key);
+                        if (window.innerWidth <= 768) {
+                          document.getElementById('service-list')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }}
                     >
                       View service list
                     </button>
@@ -143,7 +148,7 @@ export default function HomePage({ activeService, setActiveService, serviceConfi
               ))}
             </div>
 
-            <div className="checklist-block checklist-block--centered reveal" data-delay="100">
+            <div className="checklist-block checklist-block--centered reveal" id="service-list" data-delay="100">
               <div className="checklist-block-header">
                 <h3 className="checklist-block-title">Service list</h3>
                 <p className="checklist-block-hint">Select a trade to view what we offer.</p>
