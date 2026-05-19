@@ -36,8 +36,11 @@ export default function SiteFooter() {
         </div>
       </div>
       <div className="site-footer-bottom">
-        <div className="container">
+        <div className="container site-footer-bottom-inner">
           <p>&copy; {year} {BUSINESS_NAME}. All rights reserved.</p>
+          <a href="/privacy/" className="site-footer-legal">
+            Privacy Policy
+          </a>
         </div>
       </div>
     </footer>
