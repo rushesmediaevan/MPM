@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import SiteFooter from '../components/layout/SiteFooter.jsx'
 import {
   SectionFlowRule,
@@ -215,6 +216,45 @@ export default function HomePage({ activeService, setActiveService, serviceConfi
                 </ul>
               </div>
             </div>
+
+            <ul className="trust-strip reveal" data-delay="80" aria-label="Why homeowners choose MPM">
+              <li>Founded 2019</li>
+              <li>Owner on site</li>
+              <li>Licensed &amp; insured</li>
+              <li>Cherry Hill · Marlton · Moorestown</li>
+            </ul>
+          </div>
+        </section>
+
+        <section className="showcase-band" aria-label="Featured project imagery">
+          <div className="showcase-duo">
+            <Link to="/gallery" className="showcase-panel">
+              <img
+                src={MEDIA.showcase.drone}
+                alt="Aerial view of a paver patio with curved planting beds and walkway"
+                loading="lazy"
+              />
+              <div className="showcase-panel-caption">
+                <p className="showcase-panel-label">Patios &amp; walkways</p>
+                <h3 className="showcase-panel-title">Clean lines, seen from above</h3>
+              </div>
+            </Link>
+            <Link to="/gallery" className="showcase-panel">
+              <img
+                src={MEDIA.showcase.medallion}
+                alt="Curved paver walkway widening into a circular medallion"
+                loading="lazy"
+              />
+              <div className="showcase-panel-caption">
+                <p className="showcase-panel-label">Design-build</p>
+                <h3 className="showcase-panel-title">Details that hold up</h3>
+              </div>
+            </Link>
+          </div>
+          <div className="showcase-cta">
+            <Link className="btn showcase-gallery-btn" to="/gallery">
+              View the gallery
+            </Link>
           </div>
         </section>
 

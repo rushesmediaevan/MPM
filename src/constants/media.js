@@ -15,6 +15,10 @@ export const MEDIA = {
     landscaping: '/art/services/landscape-installed.jpg',
     pressureWashing: '/art/services/pressure-before-after.jpg',
   },
+  showcase: {
+    drone: '/art/showcase/drone-overhead.jpg',
+    medallion: '/art/showcase/curved-walk-medallion.jpg',
+  },
   hardscaping: [
     `${hardBase}/AdobeStock_1883176600.jpeg`,
     `${hardBase}/AdobeStock_299849827.jpeg`,
