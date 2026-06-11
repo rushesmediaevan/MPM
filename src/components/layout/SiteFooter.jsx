@@ -28,6 +28,18 @@ export default function SiteFooter() {
           </a>
           <p className="site-footer-muted">Based in Cherry Hill, NJ · South Jersey &amp; Philadelphia area</p>
         </div>
+        <div className="site-footer-col">
+          <p className="site-footer-heading">Explore</p>
+          <a href="/about" className="site-footer-link">
+            About
+          </a>
+          <a href="/gallery" className="site-footer-link">
+            Gallery
+          </a>
+          <a href="/#services" className="site-footer-link">
+            Services
+          </a>
+        </div>
         <div className="site-footer-col site-footer-col--social">
           <p className="site-footer-heading">Follow</p>
           <a href={IG_URL} className="site-footer-link" target="_blank" rel="noopener noreferrer">

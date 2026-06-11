@@ -1,11 +1,31 @@
 import { useEffect } from 'react'
 import SiteFooter from '../components/layout/SiteFooter.jsx'
+import {
+  SectionFlowRule,
+  StaggerWords,
+  HeroShader,
+  HeroPlate,
+  TiltCard,
+} from '../components/motion/index.js'
 import { BOOKING_URL, BUSINESS_NAME, PHONE_DISPLAY, PHONE_TEL } from '../constants/site.js'
 import { MEDIA } from '../constants/media.js'
 
-function ServiceImage({ image, icon }) {
+const HERO_HEADLINE = 'Hardscaping & Landscaping in South Jersey'
+
+function ServiceImage({ image, fallback, icon, alt = '' }) {
   if (image) {
-    return <img src={image} alt="" loading="lazy" />
+    return (
+      <img
+        src={image}
+        alt={alt}
+        loading="lazy"
+        onError={(e) => {
+          if (fallback && e.currentTarget.src !== fallback) {
+            e.currentTarget.src = fallback
+          }
+        }}
+      />
+    )
   }
   return (
     <div className="img-placeholder" aria-hidden="true">
@@ -57,19 +77,25 @@ export default function HomePage({ activeService, setActiveService, serviceConfi
     {
       title: 'Hardscaping',
       description: 'Patios, walls, steps, and outdoor living.',
-      image: MEDIA.hardscaping[0],
+      image: MEDIA.servicePlates?.hardscaping || MEDIA.hardscaping[0],
+      fallback: MEDIA.hardscaping[0],
+      alt: 'Natural stone patio with seating wall and plantings',
       key: 'hardscaping',
     },
     {
       title: 'Landscaping',
       description: 'Design, installation, and property maintenance.',
-      image: MEDIA.landscaping[0],
+      image: MEDIA.servicePlates?.landscaping || MEDIA.landscaping[0],
+      fallback: MEDIA.landscaping[0],
+      alt: 'Manicured lawn and stone walkway along a front entry',
       key: 'landscaping',
     },
     {
       title: 'Pressure washing',
       description: 'Residential and commercial exterior cleaning.',
-      image: MEDIA.pressureWashing[0],
+      image: MEDIA.servicePlates?.pressureWashing || MEDIA.pressureWashing[0],
+      fallback: MEDIA.pressureWashing[0],
+      alt: 'Paver patio half-cleaned showing pressure washing results',
       key: 'pressurewashing',
     },
   ]
@@ -77,8 +103,10 @@ export default function HomePage({ activeService, setActiveService, serviceConfi
   return (
     <>
       <main className="home-main">
-        <section className="hero hero--minimal" id="top" aria-labelledby="hero-title">
+        <section className="hero hero--minimal hero--cinematic" id="top" aria-labelledby="hero-title">
           <div className="color-background" />
+          <HeroShader className="hero-shader" />
+          <HeroPlate src={MEDIA.heroPlate} alt="" />
           <div className="hero-depth-orbs" aria-hidden="true" />
           <div className="hero-scene">
             <div className="container hero-grid hero-grid--minimal">
@@ -95,9 +123,11 @@ export default function HomePage({ activeService, setActiveService, serviceConfi
                     <span className="hero-brand-full">{BUSINESS_NAME}</span>
                   </p>
                 </div>
-                <h1 id="hero-title" className="hero-title hero-title--minimal reveal" data-delay="60">
-                  <span className="sr-only">{BUSINESS_NAME}. </span>
-                  Hardscaping &amp; Landscaping in South Jersey
+                <h1 id="hero-title" className="hero-title hero-title--minimal">
+                  <span className="sr-only">
+                    {BUSINESS_NAME}. {HERO_HEADLINE}
+                  </span>
+                  <StaggerWords text={HERO_HEADLINE} />
                 </h1>
                 <p className="hero-sub reveal" data-delay="90">
                   Licensed &amp; insured. Clean installs. Reliable service.
@@ -115,6 +145,10 @@ export default function HomePage({ activeService, setActiveService, serviceConfi
           </div>
         </section>
 
+        <div className="section-flow-rule-wrap">
+          <SectionFlowRule />
+        </div>
+
         <section className="services-showcase services-showcase--centered" id="services">
           <div className="container">
             <header className="section-intro section-intro--centered reveal" data-delay="0">
@@ -124,9 +158,15 @@ export default function HomePage({ activeService, setActiveService, serviceConfi
 
             <div className="services-grid services-grid--three">
               {pillars.map((p, index) => (
-                <article className="service-card-stacked reveal-scale" data-delay={index * 80} key={p.key}>
+                <TiltCard
+                  key={p.key}
+                  as="article"
+                  className="service-card-stacked reveal-scale"
+                  data-delay={index * 80}
+                  max={6}
+                >
                   <div className="service-card-stacked-image">
-                    <ServiceImage image={p.image} icon={currentConfig.icon} />
+                    <ServiceImage image={p.image} fallback={p.fallback} icon={currentConfig.icon} alt={p.alt} />
                   </div>
                   <div className="service-card-stacked-body">
                     <h3 className="service-card-stacked-title">{p.title}</h3>
@@ -144,7 +184,7 @@ export default function HomePage({ activeService, setActiveService, serviceConfi
                       View service list
                     </button>
                   </div>
-                </article>
+                </TiltCard>
               ))}
             </div>
 
@@ -196,7 +236,7 @@ export default function HomePage({ activeService, setActiveService, serviceConfi
           </div>
         </section>
 
-        <section className="final-cta final-cta--home" id="contact">
+        <section className="final-cta final-cta--home final-cta--ambient" id="contact">
           <div className="container container--narrow final-cta-content reveal-scale" data-delay="0">
             <p className="label">Get started</p>
             <h2>Book an estimate or call</h2>

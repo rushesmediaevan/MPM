@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /ads/
+Disallow: /thank-you
+
+Sitemap: https://mpmnewjersey.com/sitemap.xml

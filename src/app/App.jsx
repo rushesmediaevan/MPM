@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import CardNav from '../components/layout/CardNav.jsx'
 import HomePage from '../pages/HomePage.jsx'
 import AboutPage from '../pages/AboutPage.jsx'
 import GalleryPage from '../pages/GalleryPage.jsx'
+import PressureWashAdsPage from '../pages/PressureWashAdsPage.jsx'
+import LandscapingAdsPage from '../pages/LandscapingAdsPage.jsx'
+import EstimatePage from '../pages/EstimatePage.jsx'
+import ThankYouPage from '../pages/ThankYouPage.jsx'
 import { serviceConfigs, DEFAULT_SERVICE_KEY } from '../data/serviceConfigs.js'
 import { BOOKING_URL } from '../constants/site.js'
 import '../styles/app.css'
@@ -14,7 +18,37 @@ function isValidServiceKey(key) {
   return Boolean(key && Object.prototype.hasOwnProperty.call(serviceConfigs, key))
 }
 
+function AppRoutes({ activeService, setActiveService, serviceConfigs, currentConfig }) {
+  return (
+    <Routes>
+      <Route path="/ads/pressure-wash" element={<PressureWashAdsPage />} />
+      <Route path="/ads/landscaping" element={<LandscapingAdsPage />} />
+      <Route path="/estimate" element={<EstimatePage />} />
+      <Route path="/thank-you" element={<ThankYouPage />} />
+      <Route
+        path="/"
+        element={
+          <HomePage
+            activeService={activeService}
+            setActiveService={setActiveService}
+            serviceConfigs={serviceConfigs}
+            currentConfig={currentConfig}
+          />
+        }
+      />
+      <Route path="/about" element={<AboutPage currentConfig={currentConfig} />} />
+      <Route path="/gallery" element={<GalleryPage currentConfig={currentConfig} />} />
+    </Routes>
+  )
+}
+
 export default function App() {
+  const location = useLocation()
+  const hideNav =
+    location.pathname.startsWith('/ads/') ||
+    location.pathname === '/estimate' ||
+    location.pathname === '/thank-you'
+
   const [activeService, setActiveService] = useState(() => {
     const saved = localStorage.getItem(STORAGE_KEY)
     return isValidServiceKey(saved) ? saved : DEFAULT_SERVICE_KEY
@@ -46,6 +80,7 @@ export default function App() {
       links: [
         { label: 'Home', ariaLabel: 'Home', href: '/' },
         { label: 'About', ariaLabel: 'About MPM', href: '/about' },
+        { label: 'Gallery', ariaLabel: 'Project gallery', href: '/gallery' },
         { label: 'Contact', ariaLabel: 'Contact and estimate', href: '/#contact' },
       ],
     },
@@ -72,8 +107,8 @@ export default function App() {
   ]
 
   return (
-    <Router>
-      <div className="app">
+    <div className="app">
+      {!hideNav ? (
         <CardNav
           businessName="MPM New Jersey"
           items={items}
@@ -84,22 +119,14 @@ export default function App() {
           bookingUrl={BOOKING_URL}
           ease="power3.out"
         />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <HomePage
-                activeService={activeService}
-                setActiveService={setActiveService}
-                serviceConfigs={serviceConfigs}
-                currentConfig={currentConfig}
-              />
-            }
-          />
-          <Route path="/about" element={<AboutPage currentConfig={currentConfig} />} />
-          <Route path="/gallery" element={<GalleryPage currentConfig={currentConfig} />} />
-        </Routes>
-      </div>
-    </Router>
+      ) : null}
+      <AppRoutes
+        activeService={activeService}
+        setActiveService={setActiveService}
+        serviceConfigs={serviceConfigs}
+        currentConfig={currentConfig}
+        items={items}
+      />
+    </div>
   )
 }

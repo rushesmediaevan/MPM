@@ -7,6 +7,14 @@ const pressureDir = enc('/art/pressure washing images')
 export const MEDIA = {
   logo: '/logo.png',
   jakubVertical: enc('/jakub vertical shot.jpg'),
+  // Premium ad-campaign plates (June 2026) — same generated imagery running in
+  // the live Meta campaign, re-encoded for web in /public/art/hero + /art/services.
+  heroPlate: '/art/hero/hero-patio-golden.jpg',
+  servicePlates: {
+    hardscaping: '/art/services/hardscape-bluestone.jpg',
+    landscaping: '/art/services/landscape-installed.jpg',
+    pressureWashing: '/art/services/pressure-before-after.jpg',
+  },
   hardscaping: [
     `${hardBase}/AdobeStock_1883176600.jpeg`,
     `${hardBase}/AdobeStock_299849827.jpeg`,

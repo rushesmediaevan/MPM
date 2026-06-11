@@ -1,0 +1,235 @@
+.estimate-page {
+  min-height: 100vh;
+  background: #f7f5f0;
+  color: #1e2822;
+  padding: 96px 20px 80px;
+  font-family: 'Jost', sans-serif;
+}
+
+.estimate-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.estimate-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #a67c52;
+  margin: 0 0 12px;
+  font-weight: 500;
+}
+
+.estimate-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.05;
+  margin: 0 0 18px;
+  color: #1e2822;
+  font-weight: 500;
+}
+
+.estimate-title em {
+  font-style: italic;
+  color: #a67c52;
+}
+
+.estimate-lead {
+  font-size: 17px;
+  line-height: 1.55;
+  color: #3a4640;
+  margin: 0 0 28px;
+  max-width: 56ch;
+}
+
+.estimate-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 32px;
+}
+
+.estimate-trust span {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  background: #ffffff;
+  border: 1px solid #d8d2c4;
+  border-radius: 999px;
+  color: #2a3830;
+}
+
+.estimate-form {
+  background: #ffffff;
+  border: 1px solid #d8d2c4;
+  border-radius: 12px;
+  padding: 28px;
+  display: grid;
+  gap: 16px;
+}
+
+.estimate-field {
+  display: grid;
+  gap: 6px;
+}
+
+.estimate-field label {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  color: #2a3830;
+}
+
+.estimate-field input,
+.estimate-field textarea {
+  font: inherit;
+  padding: 12px 14px;
+  border: 1px solid #c9c1b0;
+  border-radius: 8px;
+  background: #fdfcfa;
+  color: #1e2822;
+  transition: border-color 0.15s ease;
+}
+
+.estimate-field input:focus,
+.estimate-field textarea:focus {
+  outline: none;
+  border-color: #a67c52;
+  box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.15);
+}
+
+.estimate-field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.estimate-field--error input,
+.estimate-field--error textarea {
+  border-color: #b14a3a;
+}
+
+.estimate-field-error {
+  font-size: 12px;
+  color: #b14a3a;
+}
+
+.estimate-submit {
+  margin-top: 8px;
+  padding: 14px 22px;
+  font: inherit;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: #a67c52;
+  color: #fdfcfa;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.estimate-submit:hover:not(:disabled) {
+  background: #8c6940;
+}
+
+.estimate-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.estimate-form-error {
+  background: #fdecea;
+  border: 1px solid #b14a3a;
+  color: #7a2a20;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.estimate-phone {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 14px;
+  color: #3a4640;
+}
+
+.estimate-phone a {
+  color: #a67c52;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* Thank-you page */
+.thanks-page {
+  min-height: 100vh;
+  background: #f7f5f0;
+  color: #1e2822;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: 'Jost', sans-serif;
+}
+
+.thanks-card {
+  max-width: 560px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #d8d2c4;
+  border-radius: 12px;
+  padding: 48px 36px;
+}
+
+.thanks-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #a67c52;
+  margin: 0 0 12px;
+}
+
+.thanks-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4.5vw, 48px);
+  line-height: 1.1;
+  margin: 0 0 16px;
+  color: #1e2822;
+  font-weight: 500;
+}
+
+.thanks-body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #3a4640;
+  margin: 0 0 28px;
+}
+
+.thanks-phone {
+  font-size: 18px;
+  margin: 0 0 24px;
+}
+
+.thanks-phone a {
+  color: #a67c52;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.thanks-home {
+  display: inline-block;
+  padding: 12px 22px;
+  border: 1px solid #2a3830;
+  border-radius: 8px;
+  color: #2a3830;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.thanks-home:hover {
+  background: #2a3830;
+  color: #fdfcfa;
+}

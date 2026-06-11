@@ -251,6 +251,10 @@ button:focus-visible {
     transition: none;
   }
 
+  .final-cta--ambient::after {
+    animation: none;
+  }
+
   html {
     scroll-behavior: auto;
   }
