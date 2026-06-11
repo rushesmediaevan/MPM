@@ -43,10 +43,10 @@
   --shadow-glass: 0 4px 24px rgba(24, 32, 26, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.5);
 
   /* Radius */
-  --radius-sm: 10px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --radius-pill: 999px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-pill: 0px;
 
   /* Nav (fixed bar) */
   --nav-surface: rgba(253, 252, 250, 0.94);

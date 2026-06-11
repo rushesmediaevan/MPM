@@ -56,14 +56,14 @@
   padding: 6px 12px;
   background: #ffffff;
   border: 1px solid #d8d2c4;
-  border-radius: 999px;
+  border-radius: 0;
   color: #2a3830;
 }
 
 .estimate-form {
   background: #ffffff;
   border: 1px solid #d8d2c4;
-  border-radius: 12px;
+  border-radius: 0;
   padding: 28px;
   display: grid;
   gap: 16px;
@@ -86,7 +86,7 @@
   font: inherit;
   padding: 12px 14px;
   border: 1px solid #c9c1b0;
-  border-radius: 8px;
+  border-radius: 0;
   background: #fdfcfa;
   color: #1e2822;
   transition: border-color 0.15s ease;
@@ -124,7 +124,7 @@
   background: #a67c52;
   color: #fdfcfa;
   border: none;
-  border-radius: 8px;
+  border-radius: 0;
   cursor: pointer;
   transition: background 0.15s ease, transform 0.15s ease;
 }
@@ -143,7 +143,7 @@
   border: 1px solid #b14a3a;
   color: #7a2a20;
   padding: 12px 14px;
-  border-radius: 8px;
+  border-radius: 0;
   font-size: 14px;
 }
 
@@ -177,7 +177,7 @@
   text-align: center;
   background: #ffffff;
   border: 1px solid #d8d2c4;
-  border-radius: 12px;
+  border-radius: 0;
   padding: 48px 36px;
 }
 
@@ -220,7 +220,7 @@
   display: inline-block;
   padding: 12px 22px;
   border: 1px solid #2a3830;
-  border-radius: 8px;
+  border-radius: 0;
   color: #2a3830;
   text-decoration: none;
   font-size: 13px;
