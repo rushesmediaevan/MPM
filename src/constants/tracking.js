@@ -1,13 +1,14 @@
 /**
- * MPM — Google measurement IDs + form endpoint.
+ * MPM — measurement IDs + form endpoint.
  *
- * REPLACE the placeholders below after creating the accounts.
+ * Google: replace GTM/GA4 placeholders after creating accounts.
  * See clients/mpm/docs/MPM-GOOGLE-CONVERSION-TRACKING-BUILD-PROMPT.md.
  *
- * Until GTM_ID is set to a real GTM-XXXXXXX value, the loader stays inert
- * (no network calls, no console errors). The form falls back to a mailto:
- * if FORM_ENDPOINT is still the placeholder.
+ * Meta pixel: dataset `4302664103332833` (MPM Main). Do NOT reuse on rushesmedia.com.
  */
+
+// Meta Pixel — Events Manager → MPM dataset
+export const META_PIXEL_ID = '4302664103332833'
 
 // 1. Create container at https://tagmanager.google.com → paste here
 export const GTM_ID = 'GTM-XXXXXXX'
@@ -29,5 +30,6 @@ export const GOOGLE_ADS_CONVERSION_LABEL = 'XXXXXXXXXXXX'
 export const FORM_ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_FORM_ID'
 
 // Derived helpers
+export const META_PIXEL_READY = Boolean(META_PIXEL_ID)
 export const TRACKING_READY = GTM_ID !== 'GTM-XXXXXXX'
 export const FORM_READY = !FORM_ENDPOINT.includes('REPLACE_WITH_FORM_ID')
